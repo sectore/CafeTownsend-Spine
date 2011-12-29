@@ -1,4 +1,5 @@
-#CoffeeScript port of Cafe Townsend application
+#CoffeeScript port of Cafe Townsend application 
+## ...still in progress...
 
 [CoffeeScript](http://jashkenas.github.com/coffee-script/) port of the famous Cafe Townsend application originally written in ActionScript (e.g. [ActionScript + Swiz based example](https://github.com/swiz/swiz-examples/tree/master/CafeTownsend-Flex4/))
 
@@ -11,11 +12,9 @@ The project will cover following topics:
 
 * OOP / MVC and JavaScript using [CoffeeScript](http://jashkenas.github.com/coffee-script/) and [Spine](http://spinejs.com/)
 
-* Embedding CoffeeScript templates using [Eco](https://github.com/sstephenson/eco)
+* Embedded CoffeeScript templates using [Eco](https://github.com/sstephenson/eco)
 
 * Understanding [CommonJS Modules](http://wiki.commonjs.org/wiki/Modules)
-
-* Basics in [NodeJS](http://nodejs.org/)
 
 * Using [jQuery](http://jquery.com/) with CoffeeScript
 
@@ -28,14 +27,22 @@ The project will cover following topics:
 
 
 Please note: 
-Coming from a strong [ActionScript background](www.websector.de) this example is just a personal project for a better understanding of building [MVC](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) based web applications using [CoffeeScript](http://jashkenas.github.com/coffee-script/) and [Spine](http://spinejs.com/). Any tips or improvements are welcome!
+Coming from a strong [ActionScript background](http://www.websector.de) this example is just a personal project for a better understanding of building [MVC](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) based web applications using [CoffeeScript](http://jashkenas.github.com/coffee-script/) and [Spine](http://spinejs.com/). Any tips or improvements are welcome!
 
 
 ##Live example
-[On Heroku](http://www.heroku.com/): coming soon
+[On Heroku](http://www.heroku.com): coming soon
 
 ##Installation
-coming soon
+
+1) Open Terminal
+
+	git clone https://github.com/sectore/CafeTownsend-Spine
+	cd CafeTownsend-Spine
+	npm install .
+	hem server
+
+2) Open [http://localhost:9294](http://localhost:9294/) within Browser (latest [Google Chrome](https://www.google.com/chrome) recommended)
 
 ##Author
 Jens Krause // [WEBSECTOR.DE](http://www.websector.de)

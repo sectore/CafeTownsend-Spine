@@ -1,1 +1,13 @@
 @import './mixin'
+
+
+.stack
+  > *:not(.active)
+    display: none
+
+
+input:focus:required:invalid
+  background-color: pink
+
+input:required:valid
+  background-color: #fff

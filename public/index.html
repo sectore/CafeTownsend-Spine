@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset=utf-8>
-  <title>App</title>
-  <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8">
-  <script src="/application.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript" charset="utf-8">
-    var jQuery  = require("jqueryify");
-    var exports = this;
-    jQuery(function(){
-      var App = require("index");
-      exports.app = new App({el: $("body")});      
-    });
-  </script>
-  
-  <!-- Getting started script - should be removed -->
-  <script src="http://maccman-spine.herokuapp.com/start.js" type="text/javascript" charset="utf-8"></script>
+	<meta charset=utf-8>
+	<title>CafeTownsend - Spine.js</title>
+	<link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8">
+	<script src="/application.js" type="text/javascript" charset="utf-8"></script>
+	<!--
+	-->
+	<script type="text/javascript" charset="utf-8">
+		var jQuery = require("jqueryify");
+		var exports = this;
+		jQuery(function () {
+			var App = require("index");
+			exports.app = new App( { el: $("#container") } );
+		});
+	</script>
+
 </head>
 <body>
+<div id="container"/>
 </body>
 </html>

@@ -1,18 +1,63 @@
 <form>
-	<label>First name:</label>
-	<input type="text" name="firstname">
-	<label>Last name:</label>
-	<input type="text" name="lastname">
-	<label>Start date:</label>
-	<input type="text" name="startdate">
-	<label>Email:</label>
-	<input type="text" name="email">
+	<fieldset>
+		<legend>
+			<% if @edit: %>
+			Edit
+			<% else if @add: %>
+			Add
+			<% end %>
+		</legend>
+		<label>
+			<span>First name:</span>
+			<input
+					type="text"
+					name="firstName"
+					value="<%= @employee.firstName %>"
+					required
+					autofocus
+					/>
+		</label>
+		<label>
+			<span>Last name:</span>
+			<input
+					type="text"
+					name="lastName"
+					value="<%= @employee.lastName %>"
+					required
+					/>
+		</label>
 
-	<% if @add: %>
-	<button class="bAdd">Add</button>
-	<% else %>
-	<button class="bSave">Save</button>
-	<button class="bDelete">Delete</button>
-	<% end %>
 
+		<label>
+			<span>Start date:</span>
+			<!--
+				   Check date format MM/DD/YYYY  using regex:
+				   @see: http://www.regular-expressions.info/regexbuddy/datemmddyyyy.html
+				-->
+			<input
+					type="text"
+					name="startDate"
+					value="<%= @employee.startDate %>"
+					pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d"
+					title="Please enter a date formatting MM/DD/YYYY"
+					required
+					/>
+		</label>
+
+		<label><span>Email:</span>
+			<input
+					type="email"
+					name="email"
+					value="<%= @employee.email %>"
+					required
+					/>
+		</label>
+
+		<button type="submit">Save</button>
+		<% if @edit: %>
+		<p class="bDelete">Delete</p>
+		<% else if @add: %>
+		<p class="bCancel">Cancel</p>
+		<% end %>
+	</fieldset>
 </form>
