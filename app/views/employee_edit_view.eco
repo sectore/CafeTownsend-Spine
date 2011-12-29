@@ -1,0 +1,18 @@
+<form>
+	<label>First name:</label>
+	<input type="text" name="firstname">
+	<label>Last name:</label>
+	<input type="text" name="lastname">
+	<label>Start date:</label>
+	<input type="text" name="startdate">
+	<label>Email:</label>
+	<input type="text" name="email">
+
+	<% if @add: %>
+	<button class="bAdd">Add</button>
+	<% else %>
+	<button class="bSave">Save</button>
+	<button class="bDelete">Delete</button>
+	<% end %>
+
+</form>

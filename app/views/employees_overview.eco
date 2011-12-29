@@ -1,0 +1,6 @@
+<ul id="sub-nav">
+	<li><p class="bCancel">Cancel</p></li>
+	<li><p class="bAdd">Create</p></li>
+</ul>
+
+<ul id="employee-list"/>

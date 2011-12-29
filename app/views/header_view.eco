@@ -1,0 +1,5 @@
+<div>
+	<p id="greetings">Hello</p>
+	<p id="bLogout">Logout</p>
+</div>
+
