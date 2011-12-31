@@ -1,0 +1,12 @@
+<footer>
+	<p>
+		Built with <a href="http://spinejs.com/">Spine</a>,
+		<a href="https://github.com/maccman/hem">Hem</a>,
+		<a href="http://learnboost.github.com/stylus/">Stylus</a>
+		and <a href="https://github.com/sstephenson/eco">Eco</a>.
+		All written in <a href="http://coffeescript.org/">CoffeeScript</a>.
+	</p>
+	<p>
+		<a href="https://github.com/sectore/CafeTownsend-Spine">Get source code</a> by <a href="http://www.websector.de">Jens Krause</a> @2011
+	</p>
+</footer>
