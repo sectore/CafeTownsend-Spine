@@ -1,4 +1,4 @@
 <li class="item">
-  <%= @firstName or "<i>no firstname</i>" %>
-  <%= @lastName or "<i>no lastname</i>" %>
+	<%= @firstName %>
+	<%= @lastName %>
 </li>

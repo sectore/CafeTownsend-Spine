@@ -35,12 +35,12 @@ box-flex(s = 0)
 hbox()
   display: -webkit-box
   -webkit-box-orient: horizontal
-  -webkit-box-align: stretch
+  -webkit-box-align: center
   -webkit-box-pack: start
   
   display: -moz-box
   -moz-box-orient: horizontal
-  -moz-box-align: stretch
+  -moz-box-align: center
   -moz-box-pack: start
 
 vbox()
@@ -57,10 +57,10 @@ border-box()
   -moz-box-sizing: border-box
   box-sizing: border-box
 
-transition(s = 0.3s, o =  opacity, t = linear)
-  -webkit-transition: s o t
-  -moz-transition: s o t
-  transition: s o t
+transition(t, s = 0.3s, e = linear)
+  -webkit-transition: t s e
+  -moz-transition: t s e
+  transition: t s e
 
 ellipsis()
   text-overflow: ellipsis

@@ -12,12 +12,10 @@
 		var exports = this;
 		jQuery(function () {
 			var App = require("index");
-			exports.app = new App( { el: $("#container") } );
+			exports.app = new App({ el:$("body") });
 		});
 	</script>
 
 </head>
-<body>
-<div id="container"/>
-</body>
+<body/>
 </html>

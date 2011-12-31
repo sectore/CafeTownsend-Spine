@@ -5,7 +5,12 @@ List = require 'spine/lib/list'
 Employee = require 'models/employee_model'
 
 
+###
+	MainController for employees
+	It handles routes and shows its view stacks
+	It handles EmployeeEvent's which are tiggered from other Controllers
 
+###
 class EmployeesController extends Spine.Controller
 
 
@@ -31,6 +36,10 @@ class EmployeesController extends Spine.Controller
 				data = { id: params.id, edit: true }
 				@employeeViewStack.editEmployee.active( data )
 
+		# handle global event using @proxy
+		# to ensure executing the event handler in the correct context
+		Spine.bind 'EmployeeEvent:DELETE', @proxy( @confirmDelete )
+
 
 	###
 		Override active method
@@ -42,10 +51,22 @@ class EmployeesController extends Spine.Controller
 		super params
 		@employeeViewStack.overview.active()
 
+	confirmDelete: (item) ->
+		@delete(item) if confirm "Are you sure you want to delete #{ item.firstName } #{ item.lastName }?"
+
+	delete:(item) ->
+		item.destroy()
+		@navigate '/employees'
+
 module.exports = EmployeesController
 
 
 
+###
+	Controller to show a list of all employees.
+	Selected employee can be deleted or changed.
+	New employees can be added
+###
 class EmployeesOverview extends Spine.Controller
 
 	className:
@@ -55,9 +76,10 @@ class EmployeesOverview extends Spine.Controller
 		'#employee-list': 'items'
 
 	events:
-		'click .bCancel': 'cancel'
-		'click .bAdd': 'add'
-		'click .item': 'edit'
+		'click #bAdd': 'add'
+		'click #bEdit': 'edit'
+		'click #bDelete': 'delete'
+		'dblclick .item': 'edit'
 
 	constructor: ->
 		super
@@ -69,6 +91,7 @@ class EmployeesOverview extends Spine.Controller
 		@list = new List
 			el: @items,
 			template: require('views/employee_item')
+			selectFirst: true
 
 		@list.bind 'change', @change
 
@@ -78,24 +101,30 @@ class EmployeesOverview extends Spine.Controller
 
 	change: (item) =>
 		@item = item
-		@navigate '/employees', @item.id, 'edit'
-
 
 	render: (params) =>
 		employees = Employee.all()
+
+		if employees.length <= 0
+			delete @item
+			@item = null
+
 		@list.render(employees)
 
-	cancel: (event) ->
-		@navigate '/'
-
 	edit: (event) ->
-		@navigate '/employees', @item.id, 'edit'
+		if @item?
+			@navigate '/employees', @item.id, 'edit'
 
 	add: (event) ->
 		item = Employee.create()
 		item.save()
 		@navigate '/employees', item.id, 'add'
 
+	delete: ->
+		if @item?
+			Spine.trigger 'EmployeeEvent:DELETE', @item
+
+	# mock data for initial employees
 	mockEmployees: ->
 		Employee.create { firstName: 'Sue', lastName: 'Hove', email: 'shove@cafetownsend.com', startDate: '01/07/2006' }
 		Employee.create { firstName: 'Matt', lastName: 'Boles', email: 'mboles@cafetownsend.com', startDate: '02/17/2006' }
@@ -103,8 +132,9 @@ class EmployeesOverview extends Spine.Controller
 		Employee.create { firstName: 'Jennifer', lastName: 'Jaegel', email: 'jjaegel@cafetownsend.com', startDate: '04/01/2006' }
 
 
-
-
+###
+	Controller to add or edit (or delete) an employee
+###
 class EditEmployee extends Spine.Controller
 
 	className:
@@ -116,7 +146,7 @@ class EditEmployee extends Spine.Controller
 	events:
 		'submit form': 'save'
 		'click .bCancel': 'cancel'
-		'click .bDelete': 'confirmDelete'
+		'click .bDelete': 'delete'
 
 	constructor: ->
 		super
@@ -128,12 +158,8 @@ class EditEmployee extends Spine.Controller
 		data = { employee: @item, add: params.add, edit: params.edit }
 		@html require('views/employee_edit_view')( data )
 
-	confirmDelete: ->
-		@delete() if confirm "Are you sure you want to delete #{ @item.firstName } #{ @item.lastName }?"
-
 	delete: ->
-		@item.destroy()
-		@navigate '/employees'
+		Spine.trigger 'EmployeeEvent:DELETE', @item
 
 	cancel: (event) ->
 		@item.destroy()
@@ -147,7 +173,9 @@ class EditEmployee extends Spine.Controller
 
 
 
-
+###
+	ViewStack of all employees-views (overview/edit/add)
+###
 class EmployeesViewStack extends Spine.Stack
 
 	className:

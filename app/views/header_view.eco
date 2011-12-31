@@ -1,5 +1,4 @@
 <div>
-	<p id="greetings">Hello</p>
-	<p id="bLogout">Logout</p>
+	<p class="main-button">Logout</p>
+	<p id="greetings" />
 </div>
-

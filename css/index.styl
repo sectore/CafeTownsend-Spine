@@ -1,13 +1,243 @@
 @import './mixin'
 
+/*
+	global vars
+*/
+main-content-width = 480px
+main-content-margin = 0 auto
+
+mainfont = "Helvetica Neue", helvetica, arial, sans-serif
+mainFontSize = 17px
+transition-duration = .5s
+transition-ease = linear
+
+/*
+	global tags
+*/
+body
+html
+p
+  padding: 0
+  margin: 0
+
+*:focus
+	outline: none
+
+body
+  font: mainFontSize/19px mainfont
+  color: #363636
+  font-weight: normal
+  background-color: #F4F4F4
+
+a
+  text-decoration: underline
+  color: #888
+  &:hover
+    color: #333
+
+ul
+	list-style: none
+	padding: 0
+	margin: 0
+
+.main-view
+	width: main-content-width
+	margin: main-content-margin
+	padding: 80px 0 0 0
+
+.main-view-content
+	position: relative /* needed to move header content */
+	border-box()
+	box-shadow( 0, 0, 15px, #888)
+	width: 480px
+	min-height: 400px
+	background: #FFF url(images/header.png) no-repeat top left
+	padding-top: 110px
+	border: 10px solid #363636;
+
+
+header
+footer
+.content
+	width: main-content-width
+	margin: main-content-margin
+
+header
+	height: 50px
+
+	div
+		position: relative
+		top: 50px
+		height: 50px
+
+		p#greetings
+			position: absolute
+			bottom: 4px
+			left: 40px
+
+		p.main-button
+			position: absolute
+			right: 15px
+			bottom: -5px
+
+
+footer
+	padding-top: 8px
+	font-size: 15px
+	line-height: 21px
+	color: #888
+	text-align: center
+	text-shadow: white 1px 1px 1px
+
+
+form
+	vbox()
+	padding: 20px
+
+form
+	label
+		hbox()
+		padding: 10px 0
+
+	span
+		display: block
+		width: 100px
+
+	input
+		border-box()
+		width: 270px
+		height: 35px
+		padding: 5px 10px
+		padding-right: 20px
+		border: 1px solid #AAA
+		box-shadow( 0px 0px 3px #ccc )
+		inset-box-shadow( 0 10px 15px #eee )
+		font-size: mainFontSize
+
+		&:focus
+			background: #FFF
+			border: 1px solid #555
+			box-shadow( 0 0 3px #aaa )
+
+			&:invalid
+				background: #FFF url("images/invalid.png") no-repeat 98% center !important
+				border-color: #FF3366
+
+		&:required:valid
+			background: #FFF url("images/valid.png") no-repeat 98% center
+
+	div.formFooter
+		hbox()
+		margin-top: 10px
+
+	button[type="submit"].main-button
+    	margin: 10px 20px 0 100px
+
+	p.bDelete
+	p.bCancel
+		color: #888
+		text-decoration: underline
+
+		&:hover
+			color: #363636
+			cursor: pointer
+
+legend
+	display: none
+
+fieldset
+	border: none
+
+#login-form
+
+	margin-top: 10px
+
+	p
+		padding-left: 100px
+		padding-top: 10px
+		font-size: 13px
+		color: #AAA
+
+.main-button
+	border-box()
+	width: 125px
+
+	background-color: #363636
+	border: 5px solid #FFF
+
+	padding: 5px 0
+
+	font-size: 17px
+
+	text-align: center
+
+	color: #FFF
+
+	box-shadow( 0, 0, 8px, #888)
+
+	transition( background-color, transition-duration, transition-ease )
+	transition( color, transition-duration, transition-ease )
+	transition( border-color, transition-duration, transition-ease )
+
+	&:hover
+		background-color: #FFF
+		border-color: #363636
+		color: #363636
+		cursor: pointer
+
+.subButton
+	display:block
+	border-box()
+	width: 100px
+
+	padding: 5px 0
+
+	vbg-gradient(#FFF, #F4F4F4)
+	border: 1px solid #363636;
+
+	color: #363636;
+	font-size: 15px
+
+	text-decoration: none
+	text-align: center
+
+	&:hover
+		opacity:.85;
+		cursor: pointer
+		vbg-gradient(#F4F4F4, #FFF)
+
+
+#employee-list-container
+	overflow-y: auto
+	height: 340px
+
+#employee-list
+	width: 100%
+
+	li
+		padding: 15px 30px
+		transition( background-color, transition-duration, transition-ease )
+
+		&:hover
+			background-color: #888
+			color: #FFF
+
+		&.active
+			background-color: #888
+			color: #FFF
+
+
+
+#sub-nav
+	hbox()
+	height: 60px
+	width: 100%
+	background-color: #F4F4F4
+
+	li
+		padding-left: 30px
 
 .stack
   > *:not(.active)
     display: none
 
-
-input:focus:required:invalid
-  background-color: pink
-
-input:required:valid
-  background-color: #fff

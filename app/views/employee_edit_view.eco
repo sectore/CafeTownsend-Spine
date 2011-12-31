@@ -1,3 +1,6 @@
+<ul id="sub-nav">
+	<li><a class="subButton bCancel">Back</a></li>
+</ul>
 <form>
 	<fieldset>
 		<legend>
@@ -53,11 +56,12 @@
 					/>
 		</label>
 
-		<button type="submit">Save</button>
-		<% if @edit: %>
-		<p class="bDelete">Delete</p>
-		<% else if @add: %>
-		<p class="bCancel">Cancel</p>
-		<% end %>
+		<div class="formFooter">
+			<button type="submit" class="main-button">Save</button>
+			<% if @edit: %>
+			<button class="bDelete main-button">Delete</button>
+			<% end %>
+		</div>
+
 	</fieldset>
 </form>
