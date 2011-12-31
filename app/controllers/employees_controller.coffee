@@ -146,6 +146,7 @@ class EditEmployee extends Spine.Controller
 	events:
 		'submit form': 'save'
 		'click .bCancel': 'cancel'
+		'click .bBack': 'back'
 		'click .bDelete': 'delete'
 
 	constructor: ->
@@ -163,6 +164,9 @@ class EditEmployee extends Spine.Controller
 
 	cancel: (event) ->
 		@item.destroy()
+		@back()
+
+	back: ->
 		@navigate '/employees'
 
 	save: (event) ->

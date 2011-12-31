@@ -1,5 +1,9 @@
 <ul id="sub-nav">
-	<li><a class="subButton bCancel">Back</a></li>
+	<% if @edit: %>
+	<li><a class="subButton bBack">Back</a></li>
+	<% else if @add: %>
+	<li><a class="subButton bCancel">Cancel</a></li>
+	<% end %>
 </ul>
 <form>
 	<fieldset>
