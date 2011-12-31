@@ -1,7 +1,12 @@
-#CoffeeScript port of Cafe Townsend application 
-## ...still in progress...
+#CoffeeScript port of Cafe Townsend application
 
 [CoffeeScript](http://jashkenas.github.com/coffee-script/) port of the famous Cafe Townsend application originally written in ActionScript (e.g. [ActionScript + Swiz based example](https://github.com/swiz/swiz-examples/tree/master/CafeTownsend-Flex4/))
+
+##Screen shots
+
+[![Click on screen shot to see live demo on Heroku](https://github.com/sectore/CafeTownsend-Spine/raw/master/wiki/cafetownsend-spine-login.png "Login")](http://cafetownsend-spine.herokuapp.com)
+[![Click on screen shot to see live demo on Heroku](https://github.com/sectore/CafeTownsend-Spine/raw/master/wiki/cafetownsend-spine-overview.png "Overview")](http://cafetownsend-spine.herokuapp.com)
+[![Click on screen shot to see live demo on Heroku](https://github.com/sectore/CafeTownsend-Spine/raw/master/wiki/cafetownsend-spine-edit.png "Edit")](http://cafetownsend-spine.herokuapp.com)
 
 _If you are a JavaScript Developer:_ The idea behind the Cafe Townsend project is similar to the [TodoMVC](http://addyosmani.github.com/todomvc/) project
 
@@ -31,7 +36,7 @@ Coming from a strong [ActionScript background](http://www.websector.de) this exa
 
 
 ##Live example
-[On Heroku](http://www.heroku.com): coming soon
+[http://cafetownsend-spine.herokuapp.com](http://cafetownsend-spine.herokuapp.com/)
 
 ##Installation
 
@@ -42,7 +47,7 @@ Coming from a strong [ActionScript background](http://www.websector.de) this exa
 	npm install .
 	hem server
 
-2) Open [http://localhost:9294](http://localhost:9294/) within Browser (latest [Google Chrome](https://www.google.com/chrome) recommended)
+2) Open [http://localhost:9294](http://localhost:9294/) within [Chrome](https://www.google.com/chrome)
 
 ##Author
 Jens Krause // [WEBSECTOR.DE](http://www.websector.de)
