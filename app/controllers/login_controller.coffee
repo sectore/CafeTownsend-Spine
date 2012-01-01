@@ -21,12 +21,19 @@ class LoginController extends Spine.Controller
 	constructor: ->
 		super
 
-		# handle global event using @proxy
-		# to ensure executing the event handler in the correct context
-		Spine.bind 'AppEvent:LOGOUT', @proxy( @logout )
+		###
+			defining routes
+		###
+		@routes
+				'/logout': ->
+					@logout()
 
 		# bind active event to @render
 		@active @render
+
+	render: ->
+		@html require 'views/login_view'
+
 
 	login: (event) ->
 		event.preventDefault()
@@ -39,10 +46,11 @@ class LoginController extends Spine.Controller
 		# without any server side validation of user data
 		@navigate '/employees'
 
-	render: ->
-		@html require 'views/login_view'
 
 	logout: ->
+		# clear user data
+		User.destroyAll()
+		# navigate back to '/'
 		@navigate '/'
 
 module.exports = LoginController

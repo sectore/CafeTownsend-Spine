@@ -37,10 +37,8 @@ class HeaderController extends Spine.Controller
 		# animate header to hide
 		$('header div').animate({top: '50'})
 
-
 	triggerLogout: ->
-		Spine.trigger 'AppEvent:LOGOUT'
-
+		@navigate '/logout'
 
     
 module.exports = HeaderController
